@@ -2117,22 +2117,22 @@
           </archive>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.openidentityplatform.maven.plugins</groupId>
-        <artifactId>javadoc-updater-maven-plugin</artifactId>
-        <version>1.0.0</version>
-        <executions>
-          <execution>
-            <phase>site</phase>
-            <goals>
-              <goal>fixjavadoc</goal>
-            </goals>
-            <configuration>
-              <directory>${project.reporting.outputDirectory}</directory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.openidentityplatform.maven.plugins</groupId>-->
+<!--        <artifactId>javadoc-updater-maven-plugin</artifactId>-->
+<!--        <version>1.0.0</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <phase>site</phase>-->
+<!--            <goals>-->
+<!--              <goal>fixjavadoc</goal>-->
+<!--            </goals>-->
+<!--            <configuration>-->
+<!--              <directory>${project.reporting.outputDirectory}</directory>-->
+<!--            </configuration>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
       <plugin>
         <groupId>net.ju-n.maven.plugins</groupId>
         <artifactId>checksum-maven-plugin</artifactId>
@@ -2546,6 +2546,26 @@
 					</execution>
 				</executions>
 			</plugin>
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>12.1.3</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>aggregate-dependency-check</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>aggregate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <formats>
+                        <format>CSV</format>
+                    </formats>
+                </configuration>
+            </plugin>
 		</plugins>
 	</pluginManagement>
   </build>
